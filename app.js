@@ -13,7 +13,6 @@ function displayUsers(users) {
         document.getElementsByTagName('tr')[document.getElementsByTagName('tr').length - 1].insertAdjacentHTML('afterend', user);
     }
 }
-
 document.getElementById('btn').addEventListener('click', function() {
     if (document.getElementById('uname').value && document.getElementById('pwd').value && document.getElementById('email').value && document.getElementById('loc').value && document.getElementById('com').value && document.querySelector('input[name="gender"]:checked').value) {
         var user = {
