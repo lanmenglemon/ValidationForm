@@ -27,23 +27,23 @@ document.getElementById('btn').addEventListener('click', function() {
         localStorage.a_users = JSON.stringify(users);
     }
     else {
-        if(!document.getElementById('uname').nextElementSibling) {
-            document.getElementById('uname').insertAdjacentHTML('afterend', '<span style="color:red">Please enter your name!</span>');
+        if(!document.getElementById('uname_warning')) {
+            document.getElementById('uname').insertAdjacentHTML('afterend', '<span style="color:red" id="uname_warning">Please enter your name!</span>');
         }
-        if(!document.getElementById('pwd').nextElementSibling) {
-            document.getElementById('pwd').insertAdjacentHTML('afterend', '<span style="color:red">Please enter your password!</span>');
+        if(!document.getElementById('pwd_warning')) {
+            document.getElementById('pwd').insertAdjacentHTML('afterend', '<span style="color:red" id="pwd_warning">Please enter your password!</span>');
         }
-        if(!document.getElementById('email').nextElementSibling) {
-            document.getElementById('email').insertAdjacentHTML('afterend', '<span style="color:red">Please enter your email!</span>');
+        if(!document.getElementById('email_warning')) {
+            document.getElementById('email').insertAdjacentHTML('afterend', '<span style="color:red" id="email_warning">Please enter your email!</span>');
         }
-        if(!document.getElementById('loc').nextElementSibling) {
-            document.getElementById('loc').insertAdjacentHTML('afterend', '<span style="color:red">Please enter your location!</span>');
+        if(!document.getElementById('loc_warning')) {
+            document.getElementById('loc').insertAdjacentHTML('afterend', '<span style="color:red" id="loc_warning">Please enter your location!</span>');
         }
-        if(!document.getElementById('com').nextElementSibling) {
-            document.getElementById('com').insertAdjacentHTML('afterend', '<span style="color:red">Please enter your company!</span>');
+        if(!document.getElementById('com_warning')) {
+            document.getElementById('com').insertAdjacentHTML('afterend', '<span style="color:red" id="com_warning">Please enter your company!</span>');
         }
-        if(!document.getElementById('female').nextElementSibling) {
-            document.getElementById('female').insertAdjacentHTML('afterend', '<span style="color:red">Please select your gender!</span>');
+        if(!document.getElementById('gender_warning')) {
+            document.getElementById('female').insertAdjacentHTML('afterend', '<span style="color:red" id="gender_warning">Please select your gender!</span>');
         }
     }
 });
