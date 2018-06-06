@@ -13,8 +13,19 @@ function displayUsers(users) {
         document.getElementsByTagName('tr')[document.getElementsByTagName('tr').length - 1].insertAdjacentHTML('afterend', user);
     }
 }
+
+function checkRadioValues() {
+    var genders = document.getElementsByName('gender');
+    for (var i = 0; i < genders.length; i++) {
+        if(genders[i].value == 'checked') {
+            return "checked";
+        }
+    }
+    return "unchecked";
+}
+
 document.getElementById('btn').addEventListener('click', function() {
-    if (document.getElementById('uname').value && document.getElementById('pwd').value && document.getElementById('email').value && document.getElementById('loc').value && document.getElementById('com').value && document.querySelector('input[name="gender"]:checked').value) {
+    if (document.getElementById('uname').value && document.getElementById('pwd').value && document.getElementById('email').value && document.getElementById('loc').value && document.getElementById('com').value && checkRadioValues() == "checked") {
         var user = {
             'username': document.getElementById('uname').value,
             'password': document.getElementById('pwd').value,
@@ -27,22 +38,22 @@ document.getElementById('btn').addEventListener('click', function() {
         localStorage.a_users = JSON.stringify(users);
     }
     else {
-        if(!document.getElementById('uname_warning')) {
+        if(!document.getElementById('uname_warning') && !document.getElementById('uname').value) {
             document.getElementById('uname').insertAdjacentHTML('afterend', '<span style="color:red" id="uname_warning">Please enter your name!</span>');
         }
-        if(!document.getElementById('pwd_warning')) {
+        if(!document.getElementById('pwd_warning') && !document.getElementById('pwd').value) {
             document.getElementById('pwd').insertAdjacentHTML('afterend', '<span style="color:red" id="pwd_warning">Please enter your password!</span>');
         }
-        if(!document.getElementById('email_warning')) {
+        if(!document.getElementById('email_warning') && !document.getElementById('email').value) {
             document.getElementById('email').insertAdjacentHTML('afterend', '<span style="color:red" id="email_warning">Please enter your email!</span>');
         }
-        if(!document.getElementById('loc_warning')) {
+        if(!document.getElementById('loc_warning') && !document.getElementById('loc').value) {
             document.getElementById('loc').insertAdjacentHTML('afterend', '<span style="color:red" id="loc_warning">Please enter your location!</span>');
         }
-        if(!document.getElementById('com_warning')) {
+        if(!document.getElementById('com_warning') && !document.getElementById('com').value) {
             document.getElementById('com').insertAdjacentHTML('afterend', '<span style="color:red" id="com_warning">Please enter your company!</span>');
         }
-        if(!document.getElementById('gender_warning')) {
+        if(!document.getElementById('gender_warning') && checkRadioValues() != "checked") {
             document.getElementById('female').insertAdjacentHTML('afterend', '<span style="color:red" id="gender_warning">Please select your gender!</span>');
         }
     }
